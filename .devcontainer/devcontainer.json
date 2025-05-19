@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+  // .devcontainerがあるディレクトリ名を指定
+  "name": "${localWorkspaceFolderBasename}",
+  // Node.jsのバージョンを指定したイメージ
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  // コンテナ内の作業ディレクトリ
+  "workspaceFolder": "/workspace",
+  // ローカルディレクトリを/workspaceにマウント
+  // この指定がない場合、/workspaces/{localWorkspaceFolderBasename} が作成される
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  // node_modulesをvolumeマウント
+  "mounts": [
+    {
+      "source": "${localWorkspaceFolderBasename}-node-modules",
+      "target": "/workspace/node_modules",
+      "type": "volume"
+    }
+  ],
+  // 追加設定
+  "postCreateCommand": "sudo chown node:node node_modules && pnpm config set store-dir /home/node/.pnpm-store",
+  "customizations": {
+    // VSCode拡張機能
+    "vscode": {
+      "extensions": [
+        "humao.rest-client", // REST Client
+        "eamodio.gitlens", // GitLens
+        "dbaeumer.vscode-eslint", // ESLint
+        "esbenp.prettier-vscode", // Prettier
+        "bradlc.vscode-tailwindcss" // Tailwind CSS IntelliSense
+      ]
+    }
+  }
+}
