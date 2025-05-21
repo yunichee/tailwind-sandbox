@@ -18,6 +18,15 @@ export default function Home() {
       <Link className="underline" href="/page5">
         <p>ヘッダー、サイドバーを固定</p>
       </Link>
+      <Link className="underline" href="/page6">
+        <p>ヘッダー、両サイドバー、フッター、sticky版</p>
+      </Link>
+      <Link className="underline" href="/page7">
+        <p>スクロールすると途中からコンテンツが固定される</p>
+      </Link>
+      <Link className="underline" href="/page8">
+        <p>画面右下に丸い固定ボタン</p>
+      </Link>
     </div>
   );
 }
